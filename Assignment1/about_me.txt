@@ -1,0 +1,11 @@
+Name: Duc Huy Nguyen
+Preferred name: Huy
+Student ID: 014907139
+Major: Software Engineering
+Preferred Email Address: duchuy.nguyen@sjsu.edu
+Undergraduate Student
+I am not a graduating senior.
+I am not repeating the class.
+I am a transfer student from De Anza so these are the courses I have credits: CS 46A, CS 46B, CS 47. 
+Additional Information: I have studied Python and C++ at De Anza.
+Special Topics: I would love to study about machine learning and AI.
