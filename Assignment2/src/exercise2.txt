@@ -1,0 +1,34 @@
+Main differences between int and Integer:
+
+- int is a type of primitive while Integer is of class type.
+- int is considered simple data type that holds a single value.
+- In Object Oriented Programming, int follows the principle of primitive data type while Integer behave as a wrapper class
+- Integer provides more flexibility in storing and manipulating int data because Integer can be used in collections with Object reference
+- Default values of the primitive int are 0. For the wrapper classes, the default value is null.
+- Wrapper classes are immutable.
+
+
+Pros of Integer:
+- Integer has more flexibility, Integer have methods and functionality that do not come with int variables
+- For example: Integer.toBinaryString(int i). This method returns a string representation of the integer argument
+- as an unsigned integer in base 2. Primitive int type does not have this built-in method.
+- Another example is Integer.toHexString(int i). This method returns a string representation of the integer argument
+- as an unsigned integer in base 16, in which primitive data type int is unable to perform such task out of the box.
+
+
+Cons of Integer:
+- Integer data type can take up more resources.
+- Each Integer object take up to 4 times the storage of a primitive int.
+- Therefore, if the extra capabilities are unnecessary then it is recommended to use primitive int.
+
+
+Pros of int:
+- int data type is faster to work with but do not have special capabilities.
+- Require much less memory.
+
+
+Cons of int:
+- int has less flexibility as compare to Integer as it only permits binary value of an integer in it.
+- We cannot convert int value to other base types.
+- We cannot use inbuilt functions on int to change its value or syntax.
+
