@@ -1,7 +1,10 @@
+//SJSU CS-151
+//Assignment 5
+//Name: Duc Huy Nguyen
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
-
 
 public class Student {
     private String firstName,lastName,major,department;
@@ -27,6 +30,7 @@ public class Student {
     public void setGpa(double gpa) { this.gpa = gpa; }
     public void setCourses(LinkedList<Course> courses) { this.courses = courses;}
 
+    //  Constructor
     Student(String firstName, String lastName, String major, String department, int age, double gpa, LinkedList<Course> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,34 +49,67 @@ public class Student {
         courses.remove(course);
     }
 
-
-    //Sort courses based on department.
-    public void sortCourses(boolean ascending){
-        if (ascending){
-            Collections.sort(courses, new Comparator<Course>() {
-                public int compare(Course o1, Course o2) {
-                    return o1.getDepartment().compareToIgnoreCase(o2.getDepartment());
-                }
-            });
+    //Sort courses based on selected attribute.
+    public void sortCourses(boolean ascending, String courseAttribute){
+        if (courseAttribute.equals("name")){
+            if (ascending){
+                Collections.sort(courses, new Comparator<Course>() {
+                    public int compare(Course o1, Course o2) {
+                        return o1.getName().compareToIgnoreCase(o2.getName());
+                    }
+                });
+            }
+            else{
+                Collections.reverse(courses);
+            }
         }
-        else{
-            Collections.sort(courses, new Comparator<Course>() {
-                public int compare(Course o1, Course o2) {
-                    return o2.getDepartment().compareToIgnoreCase(o1.getDepartment());
-                }
-            });
+        if (courseAttribute.equals("description")){
+            if (ascending){
+                Collections.sort(courses, new Comparator<Course>() {
+                    public int compare(Course o1, Course o2) {
+                        return o1.getDescription().compareToIgnoreCase(o2.getDescription());
+                    }
+                });
+            }
+            else{
+                Collections.reverse(courses);
+            }
         }
-//         Testing
-        for (Course e:courses){
-            System.out.println(e);
+        if (courseAttribute.equals("department")){
+            if (ascending){
+                Collections.sort(courses, new Comparator<Course>() {
+                    public int compare(Course o1, Course o2) {
+                        return o1.getDepartment().compareToIgnoreCase(o2.getDepartment());
+                    }
+                });
+            }
+            else{
+                Collections.reverse(courses);
+            }
+        }
+        if (courseAttribute.equals("timeStart")){
+            if (ascending){
+                Collections.sort(courses, new Comparator<Course>() {
+                    public int compare(Course o1, Course o2) {
+                        return o1.getTimeStart().compareToIgnoreCase(o2.getTimeStart());
+                    }
+                });
+            }
+            else{
+                Collections.reverse(courses);
+            }
+        }
+        if (courseAttribute.equals("weekday")){
+            if (ascending){
+                Collections.sort(courses, new Comparator<Course>() {
+                    public int compare(Course o1, Course o2) {
+                        return o1.getWeekday().compareToIgnoreCase(o2.getWeekday());
+                    }
+                });
+            }
+            else{
+                Collections.reverse(courses);
+            }
         }
     }
-
-    public static void main(String[] args) {
-            Student stu1 = new Student("Duc","Huy","CS","Software Engineering",18,3.9,new LinkedList<Course>());
-            stu1.addCourse(new Course("DATA STRUCTURE","Description","A","7:00","Mon-Fri"));
-            stu1.addCourse(new Course("BUSINESS","Description","b","7:00","Mon-Fri"));
-            stu1.sortCourses(false);
-    }
-
 }

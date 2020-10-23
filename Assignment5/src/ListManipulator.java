@@ -1,3 +1,7 @@
+//SJSU CS-151
+//Assignment 5
+//Name: Duc Huy Nguyen
+
 import java.util.*;
 
 public class ListManipulator {
@@ -17,7 +21,7 @@ public class ListManipulator {
     }
 
     // Create a TreeMap from an arrayList.
-    // Key: arrayList values     Values: number of occurrences.
+    // Key: arrayList values  |   Values: number of occurrences.
     // Reason for using TreeMap:
     //      1.They are already sorted.
     //      2.No duplicated keys.

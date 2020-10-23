@@ -1,6 +1,8 @@
-//course name, course description, department, time the course starts, weekday the course is held on
-// for simplicity, let us assume the course only meets once a week).
+//SJSU CS-151
+//Assignment 5
+//Name: Duc Huy Nguyen
 
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Course {
@@ -12,7 +14,6 @@ public class Course {
         this.timeStart = timeStart;
         this.weekday = weekday;
     }
-
 
     //  Getters
     public String getDepartment() { return department; }
