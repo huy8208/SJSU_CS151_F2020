@@ -1,21 +1,28 @@
-public class Triangle extends Shape {
+public class Triangle implements Shape, Runnable {
     private double base;
     private double height;
 
-    public Triangle(String objName, double base, double height) {
-        super(objName);
+    public Triangle(double base, double height) {
         this.base = base;
         this.height = height;
     }
-    
-    @Override
+
     public void computeArea() {
         double area = 1 / 2 * base * height;
         System.out.println("Area of the triangle is: " + area);
     }
 
-    public static void main(String[] args) {
-        Triangle t1 = new Triangle("t1", 5, 6);
-        t1.start();
+    public void run() {
+        try {
+            System.out.println("Class " + this.getClass() + ", current thread: " + Thread.currentThread().getName());
+            computeArea();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void start() {
+        Thread t = new Thread(this);
+        t.start();
     }
 }
