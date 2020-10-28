@@ -1,4 +1,4 @@
-public class Triangle implements Shape, Runnable {
+public class Triangle extends Shape {
     private double base;
     private double height;
 

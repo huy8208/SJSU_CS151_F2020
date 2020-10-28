@@ -1,4 +1,4 @@
-public class Hexagon implements Shape, Runnable {
+public class Hexagon extends Shape {
     private double side;
 
     Hexagon(double side) {
