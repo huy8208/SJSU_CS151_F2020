@@ -1,28 +1,39 @@
-public class Circle extends Shape {
+//SJSU CS-151
+//Assignment 6
+//Name: Duc Huy Nguyen
+
+
+public class Circle extends Shape implements Comparable<Circle> {
     final private double PI = 3.14;
     private double radius;
 
-    Circle(double radius) {
+    Circle(String objectName, double radius) {
+        super(objectName);
         this.radius = radius;
     }
 
-    public void computeArea() {
-        double area = PI * radius * radius;
-        System.out.println("Area of the circle is: " + area);
+    //  Getters
+    public double getRadius() {
+        return radius;
     }
 
-    public void run() {
-        try {
-            System.out.println("Class " + this.getClass() + ", current thread: " + Thread.currentThread().getName());
-            computeArea();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    //  Setters
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
-    public void start() {
-        Thread t = new Thread(this);
-        t.start();
+    public double computeArea() {
+        return PI * radius * radius;
     }
 
+    public String toString() {
+        return "Circle{" +
+                "PI=" + PI +
+                ", radius=" + radius +
+                "} " + super.toString();
+    }
+
+    public int compareTo(Circle that) {
+        return (int) (this.getRadius() - that.getRadius());
+    }
 }

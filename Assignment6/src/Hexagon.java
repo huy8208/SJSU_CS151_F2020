@@ -1,26 +1,37 @@
-public class Hexagon extends Shape {
+//SJSU CS-151
+//Assignment 6
+//Name: Duc Huy Nguyen
+
+
+public class Hexagon extends Shape implements Comparable<Hexagon> {
     private double side;
 
-    Hexagon(double side) {
+    Hexagon(String objectName, double side) {
+        super(objectName);
         this.side = side;
     }
 
-    public void computeArea() {
-        double area = (3 / 2) * Math.sqrt(3) * side * side;
-        System.out.println("Area of the rectangle is: " + area);
+    //  Getter
+    public double getSide() {
+        return side;
     }
 
-    public void run() {
-        try {
-            System.out.println("Class " + this.getClass() + ", current thread: " + Thread.currentThread().getName());
-            computeArea();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    // Setter
+    public void setSide(double side) {
+        this.side = side;
     }
 
-    public void start() {
-        Thread t = new Thread(this);
-        t.start();
+    public double computeArea() {
+        return Math.sqrt(3) * side * side * 3 / 2;
+    }
+
+    public String toString() {
+        return "Hexagon{" +
+                "side=" + side +
+                "} " + super.toString();
+    }
+
+    public int compareTo(Hexagon that) {
+        return (int) (this.getSide() - that.getSide());
     }
 }

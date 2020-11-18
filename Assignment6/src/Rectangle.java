@@ -1,28 +1,48 @@
-public class Rectangle extends Shape {
+//SJSU CS-151
+//Assignment 6
+//Name: Duc Huy Nguyen
+
+
+public class Rectangle extends Shape implements Comparable<Rectangle> {
     private double width;
     private double length;
 
-    Rectangle(double width, double length) {
+    Rectangle(String objectName, double width, double length) {
+        super(objectName);
         this.length = length;
         this.width = width;
     }
 
-    public void computeArea() {
-        double area = width * length;
-        System.out.println("Area of the rectangle is: " + area);
+    // Getters
+    public double getLength() {
+        return length;
     }
 
-    public void run() {
-        try {
-            System.out.println("Class " + this.getClass() + ", current thread: " + Thread.currentThread().getName());
-            computeArea();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public double getWidth() {
+        return width;
     }
 
-    public void start() {
-        Thread t = new Thread(this);
-        t.start();
+    //  Setters
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double computeArea() {
+        return width * length;
+    }
+
+    public String toString() {
+        return "Rectangle{" +
+                "width=" + width +
+                ", length=" + length +
+                "} " + super.toString();
+    }
+    
+    public int compareTo(Rectangle that) {
+        return (int) (this.getLength() - that.getLength());
     }
 }

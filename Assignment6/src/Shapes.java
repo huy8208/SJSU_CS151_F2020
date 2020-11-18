@@ -1,7 +1,14 @@
+//SJSU CS-151
+//Assignment 6
+//Name: Duc Huy Nguyen
+
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Shapes {
+public class Shapes implements Comparator<Shape> {
     private ArrayList<Shape> shapeList;
 
     Shapes() {
@@ -19,9 +26,30 @@ public class Shapes {
     }
 
     synchronized public void compute() {
-        for (int i = 0; i < shapeList.size(); i++) {
-            shapeList.get(i).start();
+        for (Shape shape : shapeList) {
+            shape.start();
         }
     }
 
+    public void add(Shape object) {
+        shapeList.add(object);
+    }
+
+    public void remove(Shape object) {
+        shapeList.remove(object);
+    }
+
+    public Shape min(){
+        return Collections.min(shapeList,new Shapes());
+    }
+
+    public Shape max(){
+        return Collections.max(shapeList,new Shapes());
+    }
+
+
+    // Do not use comparator for shape , use for each subclasses in shape
+    public int compare(Shape o1, Shape o2) {
+        return (int) (o1.computeArea() - o2.computeArea());
+    }
 }

@@ -1,28 +1,49 @@
-public class Triangle extends Shape {
+//SJSU CS-151
+//Assignment 6
+//Name: Duc Huy Nguyen
+
+
+public class Triangle extends Shape implements Comparable<Triangle> {
     private double base;
     private double height;
 
-    public Triangle(double base, double height) {
+    public Triangle(String objectName, double base, double height) {
+        super(objectName);
         this.base = base;
         this.height = height;
     }
 
-    public void computeArea() {
-        double area = 1 / 2 * base * height;
-        System.out.println("Area of the triangle is: " + area);
+    //  Getters
+    public double getBase() {
+        return base;
     }
 
-    public void run() {
-        try {
-            System.out.println("Class " + this.getClass() + ", current thread: " + Thread.currentThread().getName());
-            computeArea();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public double getHeight() {
+        return height;
     }
 
-    public void start() {
-        Thread t = new Thread(this);
-        t.start();
+    //  Setters
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+
+    public double computeArea() {
+        return (base * height) / 2;
+    }
+
+    public String toString() {
+        return "Triangle{" +
+                "base=" + base +
+                ", height=" + height +
+                "} " + super.toString();
+    }
+
+    public int compareTo(Triangle that) {
+        return (int) (this.getBase() - that.getBase());
     }
 }
